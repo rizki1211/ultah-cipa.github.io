@@ -2,6 +2,7 @@ const targetDate = new Date("June 5, 2025 00:00:01").getTime();
 
 function showCountdown() {
   const countdownDiv = document.getElementById("countdown");
+  const tungguDiv = document.getElementById("tunggu");
 
   const interval = setInterval(() => {
     const now = new Date().getTime();
@@ -10,6 +11,7 @@ function showCountdown() {
     if (distance <= 0) {
       clearInterval(interval);
       countdownDiv.style.display = "none";
+      tungguDiv.style.display = "none";
       initPage(); // Menjalankan SweetAlert dan animasi setelah waktunya
       return;
     }
@@ -20,6 +22,7 @@ function showCountdown() {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     countdownDiv.innerHTML = `${days} : ${hours} : ${minutes} : ${seconds}`;
+    tungguDiv.innerHTML = `Tunggu yaa...🥳`;
   }, 1000);
 }
 function initPage() {
